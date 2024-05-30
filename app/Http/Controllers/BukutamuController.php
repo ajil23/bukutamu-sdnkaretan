@@ -32,4 +32,25 @@ class BukutamuController extends Controller
 	{
 		return Excel::download(new BukutamuExport, 'bukutamu-sdnkaretan.xlsx');
 	}
+
+    public function edit($id){
+        $editdata = Bukutamu::find($id);
+        return view('admin.bukutamu.bukutamu_edit', compact('editdata'));
+    }
+
+    public function update(Request $request, $id){
+        $datatamu = Bukutamu::find($id);
+        $datatamu->namatamu = $request->namatamu;
+        $datatamu->jabatantamu = $request->jabatantamu;
+        $datatamu->tanggal = $request->tanggal;
+        $datatamu->tujuan = $request->tujuan;
+        $datatamu->update();
+        return redirect()->route('bukutamu.view');
+    }
+
+    public function delete($id){
+        $bukutamu = Bukutamu::find($id);
+        $bukutamu->delete();
+        return redirect()->route('bukutamu.view');
+    }
 }

@@ -31,6 +31,7 @@
                                 <th><center>Jabatan</center></th>
                                 <th><center>Tujuan</center></th>
                                 <th><center>Tanggal</center> </th>
+                                <th><center>Aksi</center> </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,6 +42,26 @@
                                 <td><center>{{$item->jabatantamu}}</center></td>
                                 <td><center>{{$item->tujuan}}</center></td>
                                 <td><center>{{date('d-m-Y', strtotime($item->tanggal));}}</center></td>
+                                <td colspan="2">
+                                    <center>
+                                        <a href="{{route('bukutamu.edit', $item->id)}}" class="btn btn-link">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-warning">
+                                                    <i class="fas fa-solid fa-pen"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-warning">Edit Data</button>
+                                            </div>
+                                        </a>
+                                        <a href="{{route('bukutamu.delete', $item->id)}}" class="btn btn-link">
+                                            <div class="btn-group" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-danger">
+                                                    <i class="fas fa-solid fa-trash"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-danger">Hapus Data</button>
+                                            </div>
+                                        </a>
+                                    </center>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

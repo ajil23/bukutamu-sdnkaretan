@@ -31,6 +31,9 @@ Route::group(['prefix' => 'admin', 'middleware' => [
     Route::get('bukutamu', [BukutamuController::class, 'index'])->name('bukutamu.view');
     Route::get('bukutamu/add', [BukutamuController::class, 'add'])->name('bukutamu.add');
     Route::get('bukutamu/export-excel', [BukutamuController::class, 'export_excel'])->name('bukutamu.export');
+    Route::get('bukutamu/edit/{id}', [BukutamuController::class, 'edit'])->name('bukutamu.edit');
+    Route::post('bukutamu/update/{id}', [BukutamuController::class, 'update'])->name('bukutamu.update');
+    Route::get('bukutamu/delete/{id}', [BukutamuController::class, 'delete'])->name('bukutamu.delete');
 });
 
 Route::post('bukutamu/store', [BukutamuController::class, 'store'])->name('bukutamu.store');
